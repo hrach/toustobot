@@ -24,7 +24,6 @@ class SlackNotifier
 			'json' => [
 				'username' => 'Toustobot',
 				'text' => $text,
-				'channel' => '#lunch',
 			],
 		]);
 	}
