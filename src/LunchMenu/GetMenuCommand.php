@@ -2,15 +2,12 @@
 
 namespace Toustobot\LunchMenu;
 
-use Toustobot\LunchMenu\MenuCrawler\HelanMenuCrawler;
-use Toustobot\LunchMenu\MenuCrawler\PlzenskyDvurMenuCrawler;
-use Toustobot\LunchMenu\MenuCrawler\SelepkaMenuCrawler;
-use Toustobot\LunchMenu\MenuCrawler\SonoMenuCrawler;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use Toustobot\LunchMenu\MenuCrawler\ZelenaKockaMenuCrawler;
+use Toustobot\LunchMenu\MenuCrawler\SuziesMenuCrawler;
+use Toustobot\LunchMenu\MenuCrawler\UZlateKonveMenuCrawler;
 
 
 class GetMenuCommand extends Command
@@ -19,7 +16,8 @@ class GetMenuCommand extends Command
 	{
 		$this
 			->setName('get-menu')
-			->addOption('slack-url', null, InputOption::VALUE_REQUIRED, 'Slack webhook URL to send lunch menus');
+			->addOption('slack-url', null, InputOption::VALUE_OPTIONAL, 'Slack webhook URL to send lunch menus')
+			->addOption('zomato-user-key', null, InputOption::VALUE_OPTIONAL, 'Zomato user API-KEY for some menu crawlers');
 	}
 
 
@@ -28,11 +26,13 @@ class GetMenuCommand extends Command
 		$now = new \DateTime();
 
 		$menuCrawlers = [
-			new HelanMenuCrawler(),
-			new PlzenskyDvurMenuCrawler(),
-			new SelepkaMenuCrawler(),
-			new SonoMenuCrawler(),
-			new ZelenaKockaMenuCrawler(),
+//			new HelanMenuCrawler(),
+//			new PlzenskyDvurMenuCrawler(),
+//			new SelepkaMenuCrawler(),
+//			new SonoMenuCrawler(),
+//			new ZelenaKockaMenuCrawler(),
+			new UZlateKonveMenuCrawler(),
+			new SuziesMenuCrawler($input->getOption('zomato-user-key'))
 		];
 
 
