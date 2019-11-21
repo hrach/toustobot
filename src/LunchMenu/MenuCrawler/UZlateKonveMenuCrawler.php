@@ -38,7 +38,7 @@ class UZlateKonveMenuCrawler implements IMenuCrawler
 
 		$parent = $title->parents()->first();
 		$neededDayIndex = max(min((int) $date->format('w'), 5), 1);
-		$dayIndex = -1;
+		$dayIndex = 0;
 		$options = [];
 
 		foreach ($parent->filter('div') as $node) {
