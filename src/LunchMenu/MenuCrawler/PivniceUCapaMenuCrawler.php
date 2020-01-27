@@ -51,12 +51,12 @@ class PivniceUCapaMenuCrawler implements IMenuCrawler
 			$options[] = $option;
 		});
 
+		$soup = trim($menus->filter('.row-polevka .polevka')->text());
+
 		return [
 			'url' => self::URL,
 			'options' => $options,
-			'soups' => [
-
-			],
+			'soups' => $soup ? [$soup] : [],
 		];
 	}
 }

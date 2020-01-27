@@ -33,6 +33,18 @@ class MenuFormatter
 		return "*$name* (<$url|link>)\n";
 	}
 
+	public function formatMenuSoups(array $menu): string
+	{
+		if (count($menu['soups']) < 1) {
+			return '';
+		}
+
+		if (count($menu['soups'])) {
+			return 'Polévka: ' . $menu['soups'][0] . "\n";
+		} else {
+			return 'Polévky: ' . implode(', ', $menu['soups']) . "\n";
+		}
+	}
 
 	public function formatMenuBody(array $menu): string
 	{

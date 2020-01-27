@@ -57,6 +57,7 @@ class GetMenuCommand extends Command
 					$menu = $menuCrawler->getMenu($now);
 				}
 				$formattedMenus .= $formatter->formatMenuHeader($name, $url);
+				$formattedMenus .= $formatter->formatMenuSoups($menu);
 				$formattedMenus .= $formatter->formatMenuBody($menu) . "\n";
 			} catch (\Throwable $e) {
 				$formattedMenus .= $formatter->formatMenuHeader($name, $url);
