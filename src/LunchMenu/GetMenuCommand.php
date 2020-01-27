@@ -6,6 +6,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use Toustobot\LunchMenu\MenuCrawler\PivniceUCapaMenuCrawler;
 use Toustobot\LunchMenu\MenuCrawler\SuziesMenuCrawler;
 use Toustobot\LunchMenu\MenuCrawler\UZlateKonveMenuCrawler;
 
@@ -32,6 +33,7 @@ class GetMenuCommand extends Command
 //			new SonoMenuCrawler(),
 //			new ZelenaKockaMenuCrawler(),
 			new UZlateKonveMenuCrawler(),
+			new PivniceUCapaMenuCrawler(),
 			new SuziesMenuCrawler($input->getOption('zomato-user-key'))
 		];
 
