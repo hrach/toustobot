@@ -34,7 +34,7 @@ class GetMenuCommand extends Command
 //			new ZelenaKockaMenuCrawler(),
 			new UZlateKonveMenuCrawler(),
 			new PivniceUCapaMenuCrawler(),
-			new SuziesMenuCrawler($input->getOption('zomato-user-key'))
+//			new SuziesMenuCrawler($input->getOption('zomato-user-key'))
 		];
 
 
