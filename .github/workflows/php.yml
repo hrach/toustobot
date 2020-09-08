@@ -1,23 +1,21 @@
 name: Fetch Menus
-
 on:
   workflow_dispatch:
   schedule:
     - cron: '30 8 * * 1-5'
-
 jobs:
   build:
 
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
+      - uses: actions/checkout@v1
 
-    - name: Install dependencies
-      run: composer install --prefer-dist --no-progress --no-suggest
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress --no-suggest
 
-    - name: Run
-      run: ./run.sh
-      env:
-        ZOMATO_USER_KEY: ${{ secrets.ZOMATO_USER_KEY }}
-        SLACK_URL: ${{ secrets.SLACK_URL }}
+      - name: Run
+        run: ./run.sh
+        env:
+          ZOMATO_USER_KEY: ${{ secrets.ZOMATO_USER_KEY }}
+          SLACK_URL: ${{ secrets.SLACK_URL }}
